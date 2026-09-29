@@ -1,0 +1,19 @@
+services:
+  - type: worker
+    name: sb24-todo-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m app.main
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: BOT_NAME
+        value: SB24 ToDo List Bot
+      - key: BOT_USERNAME
+        value: "@SB24ToDoBot"
+      - key: BOT_ABOUT
+        value: Simple Telegram task list for adding, viewing, and completing tasks.
+      - key: BOT_DESCRIPTION
+        value: SB24 ToDo List Bot helps you manage a personal task list directly in Telegram. Add tasks, view your current tasks, and mark completed tasks without leaving Telegram.
+      - key: DATABASE_PATH
+        value: data/todo.db
